@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mudamos para Ticketon!</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000000;
+            background-image: radial-gradient(circle at top right, #1a1a1a, #000000);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-6 text-white">
+
+    <div class="max-w-xl w-full text-center">
+        <!-- Espaçamento superior para compensar a falta da logo -->
+        <div class="pt-10"></div>
+
+        <h1 class="text-5xl md:text-7xl font-black mb-6 tracking-tighter">
+            ESTAMOS DE <span class="text-[#FFDD00]">CASA NOVA!</span>
+        </h1>
+        
+        <p class="text-xl text-gray-400 mb-8 leading-relaxed">
+            O <span class="text-white font-semibold line-through decoration-[#FFDD00]">socialrifa.com.br</span> agora é<br>
+            <span class="text-[#FFDD00] font-bold text-2xl">ticketon.com.br</span>
+        </p>
+
+        <div class="glass-card rounded-2xl p-6 mb-10 border-l-4 border-l-[#FFDD00]">
+            <p class="text-gray-300 text-base">
+                Evoluímos para oferecer mais agilidade e segurança. Seus acessos continuam os mesmos, apenas em um novo endereço.
+            </p>
+        </div>
+
+        <div class="flex flex-col items-center gap-6">
+            <!-- Botão Principal -->
+            <a href="https://ticketon.com.br" 
+               id="main-button"
+               class="w-full md:w-auto inline-flex items-center justify-center px-12 py-5 bg-[#FFDD00] hover:bg-[#e6c700] text-black font-black text-xl rounded-xl transition-all transform hover:scale-105 shadow-2xl shadow-[#FFDD00]/20">
+                IR PARA O NOVO SITE
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 ml-2" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                </svg>
+            </a>
+
+            <!-- Link Instagram -->
+            <a href="https://www.instagram.com/ticketon.com.br/" 
+               target="_blank"
+               class="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#FFDD00]"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                <span>@ticketon.com.br</span>
+            </a>
+
+            <!-- Timer -->
+            <p id="countdown" class="text-xs uppercase tracking-widest text-gray-500 mt-4">
+                Redirecionando em <span id="timer" class="text-[#FFDD00] font-bold">10</span> segundos
+            </p>
+        </div>
+    </div>
+
+    <script>
+        let seconds = 10;
+        const timerElement = document.getElementById('timer');
+        
+        const countdown = setInterval(() => {
+            seconds--;
+            timerElement.textContent = seconds;
+            if (seconds <= 0) {
+                clearInterval(countdown);
+                window.location.href = "https://ticketon.com.br";
+            }
+        }, 1000);
+
+        document.getElementById('main-button').addEventListener('click', () => {
+            clearInterval(countdown);
+        });
+    </script>
+</body>
+</html>
